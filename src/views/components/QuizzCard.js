@@ -1,19 +1,19 @@
 import { CCard, CRow, CCol, CCardImage, CCardBody, CCardTitle, CCardText } from "@coreui/react";
 
-const QuizzCard = () => {
+const QuizzCard = (props) => {
+
+  console.log(props.title);
   return (
-    <CCard className="mb-3" style={{ maxWidth: "540px" }}>
+    <CCard className="mb-3" style={{ maxWidth: "540px" }} key={props.id}>
       <CRow className="g-0">
         <CCol md={4}>
-          <CCardImage src="/images/react400.jpg" />
+          <CCardImage src={props.image} />
         </CCol>
         <CCol md={8}>
           <CCardBody>
-            <CCardTitle>Card title</CCardTitle>
+            <CCardTitle>{props.title}</CCardTitle>
             <CCardText>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              {props.text+""}
             </CCardText>
             <CCardText>
               <small className="text-medium-emphasis">
