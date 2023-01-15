@@ -20,19 +20,31 @@ const Home = () => {
     });
   }
 
-  console.log(quizzes);
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".card-img").forEach((card)=> {
+      console.log(card);
+      card.addEventListener("error", function (card) {
+        card.src = "../no-image.png";
+        console.log("changed image");
+        console.log (card);
+      });
+    });
+  });
+  
   return (
     <div className="container">
       <h2>Homepage</h2>
-      {quizzes.map((quiz) => (
-        <QuizzCard
-          id={quiz.id}
-          title={quiz.title}
-          image={quiz.image}
-          text={quiz.description}
-        />
-      ))}
-      <QuizzCard />
+      <div className="cards">
+        {quizzes.map((quiz) => (
+          <QuizzCard
+            id={quiz.id}
+            title={quiz.title}
+            image={quiz.image}
+            text={quiz.description}
+          />
+        ))}
+        <QuizzCard />
+      </div>
     </div>
   );
 };

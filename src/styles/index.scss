@@ -20,4 +20,20 @@ code {
   }
 }
 
+img:before{
+  background-image: url("../no-image.png");
+  background-color: red;
+  width: 50px;
+}
+
+.card-img{
+  background-image: url("../no-image.png");
+  background-color: red;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
 
