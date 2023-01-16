@@ -38,6 +38,27 @@ class Quiz {
     return quizzes;
   }
 
+  /* will get a quizz from the api and return a Quizz */
+  static async find(id) {
+    // Make the API request
+    const response = await fetch(
+      env.API_URL + "/quizzes/" + id + "?api_token=" + env.API_TOKEN
+    );
+    let data = (await response.json()).data;
+
+    // Create instances for each quiz
+
+    const quiz = new Quiz(
+      data.id,
+      data.title,
+      data.description,
+      data.image,
+      data.active,
+      data.user_id
+    );
+    return quiz;
+  }
+
 }
 
 export default Quiz;

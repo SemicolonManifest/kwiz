@@ -5,8 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import QuizNavbar from "./views/components/Navbar";
-import HomePage from "./views/Home";
-import LoginPage from "./views/Login";
+import HomePage from "./views/Home/show";
+import LoginPage from "./views/User/Login";
+import ShowQuiz from './views/Quiz/show';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -25,13 +26,17 @@ const router = createBrowserRouter([
     path: "/login",
     element: <LoginPage />,
   },
+  {
+    path: "/quizzes/:id",
+    element: <ShowQuiz />,
+  },
 ]);
 
 
 root.render(
   <React.StrictMode>
     <QuizNavbar />
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
   </React.StrictMode>
 );
 

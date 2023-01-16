@@ -1,6 +1,6 @@
 import { CCard, CRow, CCol, CCardImage, CCardBody, CCardTitle, CCardText } from "@coreui/react";
 
-const QuizzCard = (props) => {
+const QuizCard = (props) => {
   return (
     <CCard className="mb-3" style={{ maxWidth: "540px" }} key={props.id}>
       <CRow className="g-0">
@@ -25,4 +25,4 @@ const QuizzCard = (props) => {
   );
 };
 
-export default QuizzCard;
+export default QuizCard;
