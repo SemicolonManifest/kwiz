@@ -3,6 +3,7 @@ import React, {useState,useEffect} from "react";
 import QuizzCard from "./components/QuizzCard";
 
 import Quiz from "../models/Quiz";
+import Boop from "./components/animations/Boop";
 
 const Home = () => {
 
@@ -36,12 +37,14 @@ const Home = () => {
       <h2>Homepage</h2>
       <div className="cards">
         {quizzes.map((quiz) => (
-          <QuizzCard
-            id={quiz.id}
-            title={quiz.title}
-            image={quiz.image}
-            text={quiz.description}
-          />
+          <Boop rotation={10}>
+            <QuizzCard
+              id={quiz.id}
+              title={quiz.title}
+              image={quiz.image}
+              text={quiz.description}
+            />
+          </Boop>
         ))}
         <QuizzCard />
       </div>
