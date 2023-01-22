@@ -37,12 +37,14 @@ const Home = () => {
       <div className="cards">
         {quizzes.map((quiz) => (
           <Boop rotation={10}>
-            <QuizCard
-              id={quiz.id}
-              title={quiz.title}
-              image={quiz.image}
-              text={quiz.description}
-            />
+            <a href={`/quizzes/${quiz.id}`}>
+              <QuizCard
+                id={quiz.id}
+                title={quiz.title}
+                image={quiz.image}
+                text={quiz.description}
+              />
+            </a>
           </Boop>
         ))}
       </div>
