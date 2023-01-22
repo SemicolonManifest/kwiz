@@ -1,4 +1,3 @@
-import env from "react-dotenv";
 import objectMap from "../helpers/objectMap";
 
 class Quiz {
@@ -17,7 +16,9 @@ class Quiz {
   static async all() {
     // Make the API request
     const response = await fetch(
-      env.API_URL + "/quizzes?api_token=" + env.API_TOKEN
+      process.env.REACT_APP_API_URL +
+        "/quizzes?api_token=" +
+        process.env.REACT_APP_API_TOKEN
     );
     let data = (await response.json()).data;
 
@@ -42,7 +43,11 @@ class Quiz {
   static async find(id) {
     // Make the API request
     const response = await fetch(
-      env.API_URL + "/quizzes/" + id + "?api_token=" + env.API_TOKEN
+      process.env.REACT_APP_API_URL +
+        "/quizzes/" +
+        id +
+        "?api_token=" +
+        process.env.REACT_APP_API_TOKEN
     );
     let data = (await response.json()).data;
 

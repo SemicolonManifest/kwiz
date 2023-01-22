@@ -23,7 +23,6 @@ const Home = () => {
 
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".card-img").forEach((card)=> {
-      console.log(card);
       card.addEventListener("error", function (card) {
         card.src = "../no-image.png";
         console.log("changed image");
