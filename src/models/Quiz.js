@@ -73,10 +73,14 @@ class Quiz {
         process.env.REACT_APP_API_TOKEN
     );
     let data = (await response.json()).data;
-    
+    if (data === undefined) {
+      data = [];
+    }
     data = data.map((question) => {
       return new Question(question.id,question.question, this.id)
         });
+
+    
     return data;
   }
 

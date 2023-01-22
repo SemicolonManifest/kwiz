@@ -70,6 +70,7 @@ const FulfillQuiz = () => {
   if(loadingQuestions){
     questionshtml = (<div>loading...</div>)
   }else{
+    if(questions.length > 0){
     questionshtml = (
       <div className="fulfillForm">
         <CForm method="POST" onSubmit={submitForm}>
@@ -90,7 +91,7 @@ const FulfillQuiz = () => {
           <CFormInput type="submit" value="Submit" />
         </CForm>
       </div>
-    );
+    );}
   }
 
   return (
@@ -110,15 +111,13 @@ const FulfillQuiz = () => {
                   <CCardTitle>{quiz.title}</CCardTitle>
                   <CCardText>{quiz.description}</CCardText>
                   <CCardText>
-                    <small className="text-medium-emphasis">
-                      John Doe  
-                    </small>
+                    <small className="text-medium-emphasis">John Doe</small>
                   </CCardText>
                 </CCardBody>
               </CCol>
               <CCol md={2}>
                 <CCardImage
-                  src={quiz.image}
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
                   style={{
                     maxHeight: "200px",
                     width: "auto",
@@ -130,10 +129,7 @@ const FulfillQuiz = () => {
               </CCol>
             </CRow>
           </CCard>
-          {
-            questionshtml
-          }
-
+          {questionshtml}
         </div>
       )}
     </div>
