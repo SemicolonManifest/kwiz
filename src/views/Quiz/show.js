@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 import Quiz from "../../models/Quiz";
 
+import QuizCard from "../components/QuizCard";
+
 const ShowQuiz = () => {
   const [quiz, setQuiz] = useState();
   const [loading, setLoading] = useState(true);
@@ -20,8 +22,19 @@ const ShowQuiz = () => {
 
   return (
     <div className="container">
-      <h2>showQuiz {id}</h2>
-      {loading ? <p>Loading...</p> : <div>{quiz.title}</div>}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        
+          <QuizCard
+            id={quiz.id}
+            title={quiz.title}
+            image={quiz.image}
+            text={quiz.description}
+            maxWidth={"100%"}
+          />
+        
+      )}
     </div>
   );
 };

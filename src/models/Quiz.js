@@ -1,4 +1,5 @@
 import objectMap from "../helpers/objectMap";
+import Question from "./Question";
 
 class Quiz {
 
@@ -62,6 +63,21 @@ class Quiz {
       data.user_id
     );
     return quiz;
+  }
+
+  async questions(){
+    // Make the API request
+    const response = await fetch(
+      process.env.REACT_APP_API_URL +
+        "/quizzes/"+this.id+"/questions?api_token=" +
+        process.env.REACT_APP_API_TOKEN
+    );
+    let data = (await response.json()).data;
+    
+    data = data.map((question) => {
+      return new Question(question.id,question.question, this.id)
+        });
+    return data;
   }
 
 }

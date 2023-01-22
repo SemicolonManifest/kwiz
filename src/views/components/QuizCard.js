@@ -15,7 +15,7 @@ const QuizCard = (props) => {
             </CCardText>
             <CCardText>
               <small className="text-medium-emphasis">
-                Last updated 3 mins ago
+                John Doe
               </small>
             </CCardText>
           </CCardBody>

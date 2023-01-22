@@ -37,7 +37,7 @@ const Home = () => {
       <div className="cards">
         {quizzes.map((quiz) => (
           <Boop rotation={10}>
-            <a href={`/quizzes/${quiz.id}`}>
+            <a href={`/quizzes/${quiz.id}/fulfill`}>
               <QuizCard
                 id={quiz.id}
                 title={quiz.title}
