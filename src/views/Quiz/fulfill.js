@@ -17,9 +17,6 @@ import {
 import Quiz from "../../models/Quiz";
 import Question from "../../models/Question";
 
-import QuizCard from "../components/QuizCard";
-import { async } from "q";
-
 const FulfillQuiz = () => {
   const [quiz, setQuiz] = useState();
   const [questions, setQuestions] = useState([]);
@@ -46,11 +43,15 @@ const FulfillQuiz = () => {
   useEffect(() => {
   }, [questions]);
 
+  /* function called when submiting form*/
   let submitForm = async (e) => {
     e.preventDefault();
+
     let answers = document.querySelectorAll(".fulfillFormInput");
     let answersCount = answers.length;
     let answersSent = 0;
+
+    /* submit answers */
     answers.forEach( async (answer) => {
       let question = await Question.find(answer.name);
       question.answer(answer.value).then(() => {
@@ -58,6 +59,7 @@ const FulfillQuiz = () => {
       });
     });
 
+    /* function called when each answer is sent and use a counting system to confirm when they are all sent */
     let confirmSent = () => {
       answersSent++;
       if(answersSent == answersCount){
@@ -67,6 +69,8 @@ const FulfillQuiz = () => {
   }
 
   let questionshtml;
+
+  /* if loading questions show loading message and render them when finished */
   if(loadingQuestions){
     questionshtml = (<div>loading...</div>)
   }else{

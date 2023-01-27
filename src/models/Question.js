@@ -27,8 +27,8 @@ class Question {
     return question;
   }
 
+  /* Used to submit answers */ 
   async answer(value){
-    "http://api.kwiz.mycpnv.ch/api/answers?api_token=dhnZGWq1oOTMiquCSRZQ7y2McSgpec3p7t4v2vOHX1vMn4I51nthFIyQV8X6phMfYEW8AfFiOja49uzh&value=test&correct=1&question_id=1"
     const response = await fetch(
       process.env.REACT_APP_API_URL +
         "/answers" +

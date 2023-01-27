@@ -11,25 +11,15 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   if (loading) {
+    /* load all quizzes */
     Quiz.all().then((quizzes) => {
       let quizzesArray = Object.keys(quizzes).map((key) => 
         quizzes[key],
       );
       setLoading(false);
       setQuizzes(quizzesArray);
-
     });
   }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".card-img").forEach((card)=> {
-      card.addEventListener("error", function (card) {
-        card.src = "../no-image.png";
-        console.log("changed image");
-        console.log (card);
-      });
-    });
-  });
   
   return (
     <div className="container">
